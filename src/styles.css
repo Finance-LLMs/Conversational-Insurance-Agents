@@ -1237,6 +1237,8 @@ body::after {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
 }
 
 .opponent-button::before {
@@ -1271,6 +1273,24 @@ body::after {
     transform: translateY(-2px);
 }
 
+/* Singapore market style */
+.opponent-button[data-opponent="akshat"].selected {
+    background: linear-gradient(135deg, rgba(237, 41, 57, 0.2), rgba(255, 255, 255, 0.2));
+    border-color: rgba(237, 41, 57, 0.7);
+    box-shadow: 
+        0 0 0 3px rgba(237, 41, 57, 0.2),
+        0 15px 35px -5px rgba(237, 41, 57, 0.3);
+}
+
+/* Indian market style */
+.opponent-button[data-opponent="vikranth"].selected {
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(19, 136, 8, 0.2));
+    border-color: rgba(19, 136, 8, 0.7);
+    box-shadow: 
+        0 0 0 3px rgba(19, 136, 8, 0.2),
+        0 15px 35px -5px rgba(255, 153, 51, 0.3);
+}
+
 .opponent-button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -1283,6 +1303,17 @@ body::after {
     gap: 0.5rem;
     position: relative;
     z-index: 1;
+    flex-grow: 1;
+}
+
+/* Flag icon next to advisor */
+.flag-icon {
+    width: 36px;
+    height: 24px;
+    border-radius: 4px;
+    margin-right: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
 .opponent-name {

@@ -28,7 +28,9 @@ module.exports = {
                 { from: 'src/avatar.html', to: 'avatar.html' },
                 { from: 'src/styles.css', to: 'styles.css' },
                 { from: 'src/avatar.css', to: 'avatar.css' },
-                { from: 'src/videos', to: 'videos', noErrorOnMissing: true }
+                { from: 'src/market-themes.css', to: 'market-themes.css' },
+                { from: 'src/videos', to: 'videos', noErrorOnMissing: true },
+                { from: 'src/flags', to: 'flags', noErrorOnMissing: true }
             ],
         }),
     ]

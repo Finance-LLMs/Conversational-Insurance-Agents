@@ -7,6 +7,7 @@
     <meta name="description" content="Engage in discussions with AI Indian finance experts" />
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/avatar.css">
+    <link rel="stylesheet" href="/static/market-themes.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,26 +126,6 @@
             font-weight: 700;
             text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
         }
-        
-        .footer-disclaimer {
-            background: linear-gradient(135deg, rgba(255, 153, 51, 0.15), rgba(255, 215, 0, 0.15));
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 20px auto 0;
-            max-width: 800px;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            box-shadow: 0 4px 15px rgba(255, 153, 51, 0.2);
-            font-size: 0.75rem;
-            color: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            line-height: 1.4;
-        }
-        
-        .footer-disclaimer .highlight {
-            color: #FFD700;
-            font-weight: 600;
-        }
 
         .form-controls {
             margin-bottom: 12px;
@@ -216,67 +197,6 @@
             border-color: rgba(255, 215, 0, 1);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        /* Language button styles */
-        .language-buttons {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-
-        .language-button {
-            flex: 1;
-            background: linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(255, 215, 0, 0.1));
-            border: 2px solid rgba(255, 215, 0, 0.4);
-            border-radius: 8px;
-            padding: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(255, 153, 51, 0.2);
-            color: white;
-        }
-
-        .language-button:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, rgba(255, 153, 51, 0.4), rgba(255, 215, 0, 0.3));
-            border-color: rgba(255, 215, 0, 0.6);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .language-button.selected {
-            background: linear-gradient(135deg, rgba(255, 153, 51, 0.6), rgba(255, 215, 0, 0.6));
-            border-color: rgba(255, 215, 0, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .language-name {
-            color: white;
-            font-weight: 600;
-            font-size: 0.7rem;
-            margin-bottom: 1px;
-            text-align: center;
-        }
-
-        .language-desc {
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        .language-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            background: linear-gradient(135deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.2));
-            border-color: rgba(128, 128, 128, 0.4);
-        }
-
-        .language-button:disabled:hover {
-            transform: none;
-            background: linear-gradient(135deg, rgba(128, 128, 128, 0.3), rgba(128, 128, 128, 0.2));
-            border-color: rgba(128, 128, 128, 0.4);
-            box-shadow: 0 4px 12px rgba(255, 153, 51, 0.2);
         }
 
         .opponent-name {
@@ -558,40 +478,19 @@
                 </div>
 
                 <div class="form-controls">
-                    <div class="control-group">
-                        <label>Choose Language</label>
-                        <div class="language-buttons">
-                            <button type="button" class="language-button" data-language="english">
-                                <div class="language-info">
-                                    <div class="language-name">English</div>
-                                    <div class="language-desc">🇺🇸</div>
-                                </div>
-                            </button>
-                            <button type="button" class="language-button" data-language="hindi">
-                                <div class="language-info">
-                                    <div class="language-name">हिंदी</div>
-                                    <div class="language-desc">🇮🇳</div>
-                                </div>
-                            </button>
-                            <button type="button" class="language-button" data-language="tamil">
-                                <div class="language-info">
-                                    <div class="language-name">தமிழ்</div>
-                                    <div class="language-desc">🇮🇳</div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
                     
                     <div class="control-group">
                         <label>Choose Your Market Advisor</label>
                         <div class="opponent-buttons">
                             <button type="button" class="opponent-button" data-opponent="akshat">
+                                <img src="/static/flags/singapore.png" alt="Singapore Flag" class="flag-icon">
                                 <div class="opponent-info">
                                     <div class="opponent-name"><span class="ai-text">AI</span>kshat</div>
                                     <div class="opponent-desc">Singapore Markets</div>
                                 </div>
                             </button>
                             <button type="button" class="opponent-button" data-opponent="vikranth">
+                                <img src="/static/flags/india.png" alt="Indian Flag" class="flag-icon">
                                 <div class="opponent-info">
                                     <div class="opponent-name">V<span class="ai-text">AI</span>kranth</div>
                                     <div class="opponent-desc">Indian Markets</div>
@@ -634,11 +533,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Disclaimer Section -->
-        <div class="footer-disclaimer">
-            <strong>Disclaimer:</strong> AI personas for <span class="highlight">educational purposes only</span>. Not actual individuals. <span class="highlight">Not SEBI registered</span> - no investment advice provided. MIDAS Lab, IIIT Delhi research project. Consult SEBI-registered advisors for financial guidance.
         </div>
     </div>
     

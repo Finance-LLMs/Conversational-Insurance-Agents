@@ -385,6 +385,14 @@ function selectOpponent(opponentValue) {
     // Update global selectedAgent variable
     selectedAgent = opponentValue;
     
+    // Apply market-specific themes to the body
+    document.body.classList.remove('body-singapore-theme', 'body-india-theme');
+    if (opponentValue === 'akshat') {
+        document.body.classList.add('body-singapore-theme');
+    } else if (opponentValue === 'vikranth') {
+        document.body.classList.add('body-india-theme');
+    }
+    
     console.log(`Selected opponent: ${opponentValue}`);
     
     // Preload videos for the selected opponent
@@ -399,24 +407,7 @@ function selectOpponent(opponentValue) {
     checkFormValidity();
 }
 
-// Handle language button selection
-function selectLanguage(languageValue) {
-    // Remove selection from all language buttons
-    document.querySelectorAll('.language-button').forEach(button => {
-        button.classList.remove('selected');
-    });
-    
-    // Add selection to clicked button
-    const selectedButton = document.querySelector(`[data-language="${languageValue}"]`);
-    if (selectedButton) {
-        selectedButton.classList.add('selected');
-    }
-    
-    // Update global selectedLanguage variable
-    selectedLanguage = languageValue;
-    
-    console.log(`Selected language: ${languageValue}`);
-}
+// Language is now fixed to English
 
 // Animate mouth when speaking
 function startMouthAnimation() {
@@ -721,10 +712,8 @@ function updateSpeakingStatus(mode) {
 // Function to disable/enable form controls
 function setFormControlsState(disabled) {
     const opponentButtons = document.querySelectorAll('.opponent-button');
-    const languageButtons = document.querySelectorAll('.language-button');
     
     opponentButtons.forEach(button => button.disabled = disabled);
-    languageButtons.forEach(button => button.disabled = disabled);
 }
 
 async function startConversation() {
@@ -1240,19 +1229,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add event listeners for language buttons
-    document.querySelectorAll('.language-button').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const languageValue = e.currentTarget.getAttribute('data-language');
-            selectLanguage(languageValue);
-        });
-    });
-    
-    // Set default language selection (English)
-    const defaultLanguageButton = document.querySelector('[data-language="english"]');
-    if (defaultLanguageButton) {
-        selectLanguage('english');
+    // Initialize theme based on any pre-selected agent
+    const initialSelectedButton = document.querySelector('.opponent-button.selected');
+    if (initialSelectedButton) {
+        const initialOpponent = initialSelectedButton.getAttribute('data-opponent');
+        // Set the market theme without changing button selection
+        if (initialOpponent === 'akshat') {
+            document.body.classList.add('body-singapore-theme');
+        } else if (initialOpponent === 'vikranth') {
+            document.body.classList.add('body-india-theme');
+        }
     }
+    
+    // Default language is always English now
+    selectedLanguage = 'english';
     
     // Add event listeners for conversation control buttons
     startButton.addEventListener('click', startConversation);
