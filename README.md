@@ -111,9 +111,9 @@ http://localhost:3000
 ## 🏗️ Project Structure
 
 ```
-Finance-Investors-Dashboard/
+Conversational-Insurance-Agents/
 ├── backend/
-│   ├── server.js           # Express.js server with multi-language routing
+│   └── server.js           # Express.js server with multi-language routing
 ├── src/
 │   ├── index.html          # Main dashboard with language selection
 │   ├── app.js              # Core application logic
