@@ -3,8 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/app.js',
-        avatar: './src/avatar.js'
+        app: './src/app.js'
     },
     output: {
         filename: '[name]-bundle.js',
@@ -25,9 +24,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: 'src/index.html', to: 'index.html' },
-                { from: 'src/avatar.html', to: 'avatar.html' },
                 { from: 'src/styles.css', to: 'styles.css' },
-                { from: 'src/avatar.css', to: 'avatar.css' },
                 { from: 'src/market-themes.css', to: 'market-themes.css' },
                 { from: 'src/videos', to: 'videos', noErrorOnMissing: true },
                 { from: 'src/flags', to: 'flags', noErrorOnMissing: true }

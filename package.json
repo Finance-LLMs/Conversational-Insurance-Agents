@@ -1,7 +1,7 @@
 {
-  "name": "finance-investors-dashboard",
+  "name": "conversational-insurance-agents",
   "version": "1.0.0",
-  "description": "Interactive AI platform for financial consultations with Indian finance experts",
+  "description": "Interactive AI platform for insurance consultations with AI advisors",
   "scripts": {
     "start:backend": "node backend/server.js",
     "build": "webpack --mode production",
