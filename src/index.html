@@ -489,13 +489,6 @@
                                     <div class="opponent-desc">Singapore</div>
                                 </div>
                             </button>
-                            <button type="button" class="opponent-button" data-opponent="vikranth">
-                                <img src="/static/flags/india.png" alt="Indian Flag" class="flag-icon">
-                                <div class="opponent-info">
-                                    <div class="opponent-name">V<span class="ai-text">AI</span>kranth</div>
-                                    <div class="opponent-desc">India</div>
-                                </div>
-                            </button>
                         </div>
                     </div>
                 </div>                <div class="recording-section">                    <button id="startButton" class="record-button" disabled>
@@ -586,26 +579,6 @@
                     <div class="celebrity-avatar-container">
                         <video 
                             src="/static/videos/akshat.mp4" 
-                            class="celebrity-video"
-                            muted
-                            loop
-                            playsinline
-                            preload="auto"
-                            id="avatarVideo"
-                            style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
-                        ></video>
-                        <div class="speaking-indicator" id="speakingIndicator" style="display: none;">
-                            <div class="speaking-wave"></div>
-                            <div class="speaking-wave"></div>
-                            <div class="speaking-wave"></div>
-                        </div>
-                    </div>
-                `;
-            } else if (agent === 'vikranth') {
-                container.innerHTML = `
-                    <div class="celebrity-avatar-container">
-                        <video 
-                            src="/static/videos/vikranth.mp4" 
                             class="celebrity-video"
                             muted
                             loop

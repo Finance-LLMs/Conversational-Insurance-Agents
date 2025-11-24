@@ -21,9 +21,6 @@ app.get("/api/signed-url", async (req, res) => {
     if (opponent === 'akshat') {
       // Akshat represents Singapore markets
       agentId = process.env.SINGAPORE_AGENT_ID; // agent_0501k86cmfndepn9a9hnb5q5x2j7
-    } else if (opponent === 'vikranth') {
-      // Vikranth represents Indian markets
-      agentId = process.env.INDIA_AGENT_ID; // agent_5401k86cnk7ffs4rzczf032xpv0f
     }
     
     console.log(`Using agent ID: ${agentId}`);
