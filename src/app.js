@@ -2,7 +2,7 @@
 import { Conversation } from '@elevenlabs/client';
 
 // Global variables for Medical Debater interface
-let selectedAgent = '';
+let selectedAgent = 'akshat'; // Default to Singapore agent
 let selectedLanguage = 'english'; // Default to English
 let currentTopic = '';
 
@@ -269,7 +269,8 @@ function initializeAvatar() {
 // Get the currently selected opponent from buttons
 function getSelectedOpponent() {
     const selectedButton = document.querySelector('.opponent-button.selected');
-    return selectedButton ? selectedButton.getAttribute('data-opponent') : '';
+    const buttonValue = selectedButton ? selectedButton.getAttribute('data-opponent') : '';
+    return selectedAgent || buttonValue || '';
 }
 
 // Preload videos for better performance
@@ -279,6 +280,7 @@ function preloadVideos(opponent) {
         'nelson': 'nelson.mp4',
         'michelle': 'barbarella.mp4',
         'taylor': 'taylor.mp4',
+        'akshat': 'akshat.mp4'
     };
     
     const videoSrc = videoMap[opponent];
@@ -1179,13 +1181,13 @@ async function waitForUserToStopSpeaking(silenceDuration = 2000, pollInterval = 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Document loaded, starting initialization...');
     
-    // Preload all available videos at startup
+    // Preload the default advisor video at startup
     console.log('Preloading videos...');
-    preloadVideos('nelson');
+    preloadVideos('akshat');
     
     // Tell avatar frame to preload videos too (once it's loaded)
     setTimeout(() => {
-        sendMessageToAvatarFrame('preloadVideo', { opponent: 'nelson' });
+        sendMessageToAvatarFrame('preloadVideo', { opponent: 'akshat' });
     }, 1000);
     
     // Wait a bit to ensure video preloading has started
@@ -1217,23 +1219,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Make checkFormValidity globally accessible
     window.checkFormValidity = checkFormValidity;
     
-    // Add event listeners for opponent buttons
+    // If a selection control exists, keep wiring it; otherwise rely on default
     document.querySelectorAll('.opponent-button').forEach(button => {
         button.addEventListener('click', (e) => {
             const opponentValue = e.currentTarget.getAttribute('data-opponent');
             selectOpponent(opponentValue);
         });
     });
-    
-    // Initialize theme based on any pre-selected agent
-    const initialSelectedButton = document.querySelector('.opponent-button.selected');
-    if (initialSelectedButton) {
-        const initialOpponent = initialSelectedButton.getAttribute('data-opponent');
-        // Set the market theme without changing button selection
-        if (initialOpponent === 'akshat') {
-            document.body.classList.add('body-singapore-theme');
-        }
-    }
+
+    // Auto-select the Singapore agent on load
+    selectOpponent('akshat');
     
     // Default language is always English now
     selectedLanguage = 'english';

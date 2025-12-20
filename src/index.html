@@ -14,11 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: #1a4d3a;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 200, 120, 0.1), transparent 35%),
+                        radial-gradient(circle at 80% 10%, rgba(140, 220, 200, 0.12), transparent 32%),
+                        linear-gradient(135deg, #0f1f2c, #0a1620 45%, #0c1b2a);
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            color: #e7edf5;
         }
         
 
@@ -29,13 +32,19 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
         }
 
         .debate-interface {
             display: flex;
             height: auto;
             max-height: 600px;
-            gap: 8px;
+            gap: 12px;
             align-items: stretch;
         }
 
@@ -44,24 +53,24 @@
             max-width: 280px;
             min-width: 260px;
             height: 500px;
-            background: linear-gradient(135deg, rgba(255, 153, 51, 0.25), rgba(255, 215, 0, 0.2));
-            backdrop-filter: blur(20px);
-            border-radius: 12px;
-            padding: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.6);
-            box-shadow: 0 20px 40px rgba(255, 153, 51, 0.3), inset 0 2px 8px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(16px);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
             overflow-y: auto;
         }
 
         .avatar-card {
             flex: 1;
             height: 500px;
-            background: linear-gradient(135deg, rgba(19, 136, 8, 0.2), rgba(255, 153, 51, 0.25));
-            backdrop-filter: blur(20px);
-            border-radius: 12px;
-            padding: 12px;
-            border: 2px solid rgba(255, 215, 0, 0.6);
-            box-shadow: 0 20px 40px rgba(19, 136, 8, 0.3), inset 0 2px 8px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(16px);
+            border-radius: 14px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -225,19 +234,21 @@
         }
 
         .record-button, .qna-button, #startScriptedAI {
-            padding: 10px 14px;
-            border: none;
-            border-radius: 10px;
-            font-size: 0.85rem;
+            padding: 11px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             backdrop-filter: blur(10px);
-            color: white;
+            color: #0f1f2c;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            background: linear-gradient(135deg, #9de3ff, #ffd27f);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
         }
 
         #startScriptedAI, .qna-button {
@@ -259,9 +270,9 @@
         }
 
         .record-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 153, 51, 0.6);
-            background: linear-gradient(135deg, #FF9933, #FFD700);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #ffd27f, #9de3ff);
         }
 
         .stop-button {
@@ -283,20 +294,26 @@
         .avatar-wrapper {
             width: 100%;
             height: 400px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 210, 127, 0.08), transparent 50%), rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(10px);
             position: relative;
+            overflow: hidden;
         }
 
         .no-agent-message {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
             text-align: center;
+            background: rgba(15, 31, 44, 0.55);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
         }
 
         .celebrity-avatar-container {
@@ -453,8 +470,9 @@
 </head>
 <body>
     <div class="debate-container">
-        <div class="finance-header">
-            <h1>Conversational Insurance Agents</h1>
+        <div class="finance-header" style="display:flex; align-items:center; gap:10px; justify-content:center;">
+            <img src="/static/flags/singapore.png" alt="Singapore Flag" class="flag-icon" style="width:32px; height:22px; border-radius:4px; border:1px solid rgba(255,255,255,0.6); box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+            <h1>Singapore AI Insurance Advisor</h1>
         </div>
         
         <div id="connectionStatus" class="hidden">Disconnected</div>
@@ -464,31 +482,16 @@
         <div class="debate-interface">
             <!-- Left Panel: Controls -->
             <div class="control-card">
-                <div class="card-header">
-                    <div class="header-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                            <path d="M12 14l-6.16-3.422a12.083 12.083 0 00-.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 006.824-2.998 12.078 12.078 0 00-.665-6.479L12 14z"></path>
-                        </svg>
-                    </div>                    <div class="header-text">
-                        <h2>Insurance Advisors</h2>
-                        <p>Have conversations with AI insurance experts</p>
-                    </div>
-                </div>
+                <div class="card-header" style="display:none;"></div>
 
                 <div class="form-controls">
-                    
                     <div class="control-group">
-                        <div class="opponent-buttons">
-                            <button type="button" class="opponent-button" data-opponent="akshat">
-                                <img src="/static/flags/singapore.png" alt="Singapore Flag" class="flag-icon">
-                                <div class="opponent-info">
-                                    <div class="opponent-name"><span class="ai-text">AI</span>kshat</div>
-                                    <div class="opponent-desc">Singapore</div>
-                                </div>
-                            </button>
-                        </div>
+                        <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.4;">
+                            Singapore-focused agent that explains health, motor, travel, home, accident, business, liability, WICA, and marine coverage in plain language, stays within MAS/GIA guardrails, and ends with clear next steps.
+                        </p>
+                        <p style="margin: 10px 0 0; color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.35;">
+                            Knowledge bases: MAS, GIA, CPF (MediShield/IP), MOM (WICA), NTUC Income, Great Eastern, AIA, Singlife, Aviva, MSIG, AXA, FWD, Tokio Marine, Income Insurance, LIC Singapore, Allianz, Sun Life, Prudential, and other SG insurer pages.
+                        </p>
                     </div>
                 </div>                <div class="recording-section">                    <button id="startButton" class="record-button" disabled>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -521,7 +524,8 @@
             <div class="avatar-card">
                 <div id="animatedAvatar" class="avatar-wrapper">
                     <div class="no-agent-message">
-                        Select a financial advisor to begin
+                        <div style="font-weight:700; font-size:1.1rem; margin-bottom:4px;">Singapore Insurance Agent</div>
+                        <div style="color: rgba(255,255,255,0.85);">Always-on advisor for the Singapore market</div>
                     </div>
                 </div>
             </div>
@@ -529,90 +533,5 @@
     </div>
     
             <script src="/static/app-bundle.js"></script>
-    <script>
-        let selectedAgent = null;
-        let currentTopic = '';
-        
-        // Agent selection functionality
-        document.querySelectorAll('.opponent-button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove selection from all buttons
-                document.querySelectorAll('.opponent-button').forEach(b => b.classList.remove('selected'));
-                
-                // Add selection to clicked button
-                this.classList.add('selected');
-                
-                // Store selected agent
-                selectedAgent = this.dataset.agent;
-                
-                // Enable buttons
-                updateButtonStates();
-                
-                // Show avatar
-                showAgentAvatar(selectedAgent);
-            });
-        });
-        
-        // Topic selection functionality
-        document.getElementById('topic').addEventListener('change', function() {
-            currentTopic = this.value;
-            updateButtonStates();
-        });
-        
-        function updateButtonStates() {
-            const startButton = document.getElementById('startButton');
-            const hasAgent = selectedAgent !== null;
-            const hasTopic = currentTopic.length > 0;
-            
-            if (startButton) {
-                startButton.disabled = !hasAgent || !hasTopic;
-            }
-        }
-        
-        function showAgentAvatar(agent) {
-            const container = document.getElementById('avatarContainer');
-            
-            // Create avatar based on agent
-            if (agent === 'akshat') {
-                container.innerHTML = `
-                    <div class="celebrity-avatar-container">
-                        <video 
-                            src="/static/videos/akshat.mp4" 
-                            class="celebrity-video"
-                            muted
-                            loop
-                            playsinline
-                            preload="auto"
-                            id="avatarVideo"
-                            style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
-                        ></video>
-                        <div class="speaking-indicator" id="speakingIndicator" style="display: none;">
-                            <div class="speaking-wave"></div>
-                            <div class="speaking-wave"></div>
-                            <div class="speaking-wave"></div>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Setup video events
-            const video = document.getElementById('avatarVideo');
-            if (video) {
-                video.addEventListener('loadeddata', () => {
-                    console.log('Avatar video loaded successfully');
-                });
-                
-                video.addEventListener('error', (e) => {
-                    console.error('Avatar video error:', e);
-                });
-            }
-        }
-        
-        // Make functions available globally for the main app bundle
-        window.selectedAgent = () => selectedAgent;
-        window.currentTopic = () => currentTopic;
-        window.updateButtonStates = updateButtonStates;
-        window.showAgentAvatar = showAgentAvatar;
-    </script>
 </body>
 </html>
