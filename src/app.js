@@ -2,7 +2,7 @@
 import { Conversation } from '@elevenlabs/client';
 
 // Global variables for Medical Debater interface
-let selectedAgent = 'akshat'; // Default to Singapore agent
+let selectedAgent = 'finance'; // Default to finance agent
 let selectedLanguage = 'english'; // Default to English
 let currentTopic = '';
 
@@ -104,19 +104,23 @@ function createAvatarSVG() {
 function createCelebrityAvatar(opponent) {
     // Map for character videos - this is the primary content
     const videoMap = {
+        'finance': 'finance.mp4',
+        'insurance': 'insurance.mp4',
         'nelson': 'nelson.mp4',
         'michelle': 'barbarella.mp4',
         'taylor': 'taylor.mp4',
-    'akshat': 'akshat.mp4'
+        'akshat': 'akshat.mp4'
     };
     
     // Fallback image map - only used if video fails completely
     const imageMap = {
+        'finance': 'finance.jpg',
+        'insurance': 'insurance.jpg',
         'michelle': 'michelle.jpg',
         'nelson': 'nelson.jpg', 
         'taylor': 'taylor.jpg',
         'singapore_uncle': 'singapore_uncle.jpg',
-    'akshat': 'akshat.jpg'
+        'akshat': 'akshat.jpg'
     };
     
     const videoSrc = videoMap[opponent];
@@ -277,6 +281,8 @@ function getSelectedOpponent() {
 function preloadVideos(opponent) {
     // Map for character videos
     const videoMap = {
+        'finance': 'finance.mp4',
+        'insurance': 'insurance.mp4',
         'nelson': 'nelson.mp4',
         'michelle': 'barbarella.mp4',
         'taylor': 'taylor.mp4',
@@ -387,9 +393,6 @@ function selectOpponent(opponentValue) {
     
     // Apply market-specific themes to the body
     document.body.classList.remove('body-singapore-theme');
-    if (opponentValue === 'akshat') {
-        document.body.classList.add('body-singapore-theme');
-    }
     
     console.log(`Selected opponent: ${opponentValue}`);
     
@@ -1183,11 +1186,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Preload the default advisor video at startup
     console.log('Preloading videos...');
-    preloadVideos('akshat');
+    preloadVideos('finance');
     
     // Tell avatar frame to preload videos too (once it's loaded)
     setTimeout(() => {
-        sendMessageToAvatarFrame('preloadVideo', { opponent: 'akshat' });
+        sendMessageToAvatarFrame('preloadVideo', { opponent: 'finance' });
     }, 1000);
     
     // Wait a bit to ensure video preloading has started
@@ -1227,8 +1230,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Auto-select the Singapore agent on load
-    selectOpponent('akshat');
+    // Auto-select the finance agent on load
+    selectOpponent('finance');
     
     // Default language is always English now
     selectedLanguage = 'english';

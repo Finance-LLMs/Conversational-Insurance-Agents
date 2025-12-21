@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversational Insurance Agents</title>
-    <meta name="description" content="Have real-time conversations with AI insurance advisors" />
+    <title>Singapore AI Agents</title>
+    <meta name="description" content="Have real-time conversations with AI finance and insurance advisors" />
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/avatar.css">
     <link rel="stylesheet" href="/static/market-themes.css">
@@ -27,7 +27,7 @@
 
         .debate-container {
             min-height: 100vh;
-            padding: 20px;
+            padding: 14px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -472,7 +472,7 @@
     <div class="debate-container">
         <div class="finance-header" style="display:flex; align-items:center; gap:10px; justify-content:center;">
             <img src="/static/flags/singapore.png" alt="Singapore Flag" class="flag-icon" style="width:32px; height:22px; border-radius:4px; border:1px solid rgba(255,255,255,0.6); box-shadow:0 2px 6px rgba(0,0,0,0.25);">
-            <h1>Singapore AI Insurance Advisor</h1>
+            <h1>Singapore AI Agents</h1>
         </div>
         
         <div id="connectionStatus" class="hidden">Disconnected</div>
@@ -486,12 +486,35 @@
 
                 <div class="form-controls">
                     <div class="control-group">
-                        <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.4;">
-                            Singapore-focused agent that explains health, motor, travel, home, accident, business, liability, WICA, and marine coverage in plain language, stays within MAS/GIA guardrails, and ends with clear next steps.
-                        </p>
-                        <p style="margin: 10px 0 0; color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.35;">
-                            Knowledge bases: MAS, GIA, CPF (MediShield/IP), MOM (WICA), NTUC Income, Great Eastern, AIA, Singlife, Aviva, MSIG, AXA, FWD, Tokio Marine, Income Insurance, LIC Singapore, Allianz, Sun Life, Prudential, and other SG insurer pages.
-                        </p>
+                        <div class="opponent-buttons">
+                            <button type="button" class="opponent-button selected" data-opponent="finance">
+                                <div class="opponent-info">
+                                    <div class="opponent-name">Finance Advisor</div>
+                                    <div class="opponent-desc">Portfolios · goals · tax-aware planning</div>
+                                </div>
+                            </button>
+                            <button type="button" class="opponent-button" data-opponent="insurance">
+                                <div class="opponent-info">
+                                    <div class="opponent-name">Insurance Advisor</div>
+                                    <div class="opponent-desc">Health · motor · travel · WICA · liability</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-top:10px;">
+                        <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); box-shadow:0 12px 28px rgba(0,0,0,0.22); color:rgba(255,255,255,0.88); font-size:0.45rem; line-height:1.5;">
+                            <div style="font-weight:700; letter-spacing:0.02em; margin-bottom:6px; color:#fff; font-size:0.55rem;">What they can help with</div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;">
+                                <div style="padding:10px; border-radius:10px; background:rgba(157,227,255,0.08); border:1px solid rgba(157,227,255,0.12);">
+                                    <div style="font-weight:600; color:#dff3ff; margin-bottom:4px; font-size:0.5rem;">Finance</div>
+                                    <div style="font-size:0.44rem; color:rgba(255,255,255,0.82);">Goal-based plans, portfolio mix, cashflow and emergency buffers, CPF usage, and SG tax-aware moves.</div>
+                                </div>
+                                <div style="padding:10px; border-radius:10px; background:rgba(255,210,127,0.08); border:1px solid rgba(255,210,127,0.14);">
+                                    <div style="font-weight:600; color:#ffe7c0; margin-bottom:4px; font-size:0.5rem;">Insurance</div>
+                                    <div style="font-size:0.44rem; color:rgba(255,255,255,0.82);">Health/IP, motor, travel, home, PA, WICA, liability, and claims guidance aligned to MAS/GIA norms.</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>                <div class="recording-section">                    <button id="startButton" class="record-button" disabled>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -524,8 +547,8 @@
             <div class="avatar-card">
                 <div id="animatedAvatar" class="avatar-wrapper">
                     <div class="no-agent-message">
-                        <div style="font-weight:700; font-size:1.1rem; margin-bottom:4px;">Singapore Insurance Agent</div>
-                        <div style="color: rgba(255,255,255,0.85);">Always-on advisor for the Singapore market</div>
+                        <div style="font-weight:700; font-size:1.1rem; margin-bottom:4px;">Singapore Finance Advisor</div>
+                        <div style="color: rgba(255,255,255,0.85);">Default agent loaded • switch to Insurance anytime</div>
                     </div>
                 </div>
             </div>

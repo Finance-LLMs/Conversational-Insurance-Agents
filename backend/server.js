@@ -13,14 +13,22 @@ app.use("/static", express.static(path.join(__dirname, "../dist")));
 app.get("/api/signed-url", async (req, res) => {
   try {
     const { opponent, mode, language } = req.query;
-    let agentId = process.env.AGENT_ID; // Default agent ID
+    let agentId = process.env.AGENT_ID; // Fallback/default
       
     console.log(`Getting signed URL for opponent: ${opponent}, mode: ${mode}, language: ${language}`);
     
     // Map opponent to specific market and use the appropriate agent ID
-    if (opponent === 'akshat') {
-      // Akshat represents Singapore markets
-      agentId = process.env.SINGAPORE_AGENT_ID; // agent_0501k86cmfndepn9a9hnb5q5x2j7
+    if (opponent === 'finance') {
+      agentId = process.env.FINANCE_AGENT_ID;
+    } else if (opponent === 'insurance') {
+      agentId = process.env.INSURANCE_AGENT_ID;
+    } else if (opponent === 'akshat') {
+      agentId = process.env.SINGAPORE_AGENT_ID;
+    }
+
+    if (!agentId) {
+      console.error('No agent ID configured for opponent:', opponent);
+      return res.status(400).json({ error: 'No agent ID configured for this opponent' });
     }
     
     console.log(`Using agent ID: ${agentId}`);
@@ -30,7 +38,7 @@ app.get("/api/signed-url", async (req, res) => {
       {
         method: "GET",
         headers: {
-          "xi-api-key": process.env.API_KEY || "sk_de44b5d768232e11b1a644e83b93c77701274225f2b3ab13",
+          "xi-api-key": process.env.API_KEY,
         },
       }
     );
