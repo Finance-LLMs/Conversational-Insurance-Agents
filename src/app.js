@@ -104,8 +104,8 @@ function createAvatarSVG() {
 function createCelebrityAvatar(opponent) {
     // Map for character videos - this is the primary content
     const videoMap = {
-        'finance': 'finance.mp4',
-        'insurance': 'insurance.mp4',
+        'finance': 'sarah.mp4',
+        'insurance': 'sarah.mp4',
         'nelson': 'nelson.mp4',
         'michelle': 'barbarella.mp4',
         'taylor': 'taylor.mp4',
@@ -114,8 +114,8 @@ function createCelebrityAvatar(opponent) {
     
     // Fallback image map - only used if video fails completely
     const imageMap = {
-        'finance': 'finance.jpg',
-        'insurance': 'insurance.jpg',
+        'finance': 'sarah.jpg',
+        'insurance': 'sarah.jpg',
         'michelle': 'michelle.jpg',
         'nelson': 'nelson.jpg', 
         'taylor': 'taylor.jpg',
@@ -281,8 +281,8 @@ function getSelectedOpponent() {
 function preloadVideos(opponent) {
     // Map for character videos
     const videoMap = {
-        'finance': 'finance.mp4',
-        'insurance': 'insurance.mp4',
+        'finance': 'sarah.mp4',
+        'insurance': 'sarah.mp4',
         'nelson': 'nelson.mp4',
         'michelle': 'barbarella.mp4',
         'taylor': 'taylor.mp4',
